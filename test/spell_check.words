@@ -1,0 +1,9 @@
+apache
+iterdir
+linter
+pathlib
+pydocstyle
+pytest
+scspell
+setuptools
+thomas
