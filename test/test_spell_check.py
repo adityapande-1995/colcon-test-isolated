@@ -22,7 +22,7 @@ def test_spell_check(known_words):
 
     source_filenames = [Path(__file__).parents[1] / 'setup.py'] + \
         list(
-            (Path(__file__).parents[1] / 'template_package')
+            (Path(__file__).parents[1] / 'colcon_test_isolated')
             .glob('**/*.py')) + \
         list((Path(__file__).parents[1] / 'test').glob('**/*.py'))
 
