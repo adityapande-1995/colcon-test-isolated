@@ -1,15 +1,9 @@
-from colcon_core.plugin_system import satisfies_version
-from colcon_core.verb import VerbExtensionPoint
+from colcon_core.verb.test import TestVerb
 
-
-class TestIsolatedVerb(VerbExtensionPoint):
-    """Cleans package workspaces."""
-
-    def __init__(self):  # noqa: D107
+class TestIsolatedVerb(TestVerb):
+    def __init__(self):
         super().__init__()
 
-    def add_arguments(self, *, parser):
-        pass
-
-    def main(self, *, context):  # noqa: D102
+    def main(self, *, context):
         print("Hello world")
+        super().main(context=context)
