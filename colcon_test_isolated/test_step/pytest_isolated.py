@@ -1,11 +1,14 @@
 from colcon_core.task.python.test.pytest import *
+from pathlib import Path
+
+current_dir = Path(__file__).parent
+isolate_file = str(current_dir / "isolate.py")
 
 class PytestIsolatedPythonTestingStep(PytestPythonTestingStep):
 
     async def step(self, context, env, setup_py_data):
-        # Add the pybind executable here
-        print("Running isolation step here")
-        cmd = [sys.executable, '-m', 'pytest']
+        print("Isolating the test")
+        cmd = [sys.executable, isolate_file, sys.executable, '-m', 'pytest']
         junit_xml_path = Path(
             context.args.test_result_base
             if context.args.test_result_base
